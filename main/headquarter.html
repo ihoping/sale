@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> 资源文件结构</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/page-min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <form id="J_Form" class="form-horizontal span24">
+            <div class="row">
+                <div class="control-group span8">
+                    <label class="control-label"><s>*</s>总店名：</label>
+                    <div class="controls">
+                        <input name="head_id" type="text" data-rules="{required:true}" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label"><s>*</s>联系人：</label>
+                    <div class="controls">
+                        <input name="head_contacts" type="text" data-rules="{required:true}" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label"><s>*</s>电话号码1：</label>
+                    <div class="controls">
+                        <input name="head_tel1" type="text" data-rules="{regexp:/^\d{7,}/}" data-messages="电话号码格式错误！" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label">电话号码2：</label>
+                    <div class="controls">
+                        <input name="head_tel2" type="text"  class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label">电话号码3：</label>
+                    <div class="controls">
+                        <input name="head_tel3" type="text" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label">QQ号：</label>
+                    <div class="controls">
+                        <input name="head_tel1" type="text" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label">传真号：</label>
+                    <div class="controls">
+                        <input name="head_tel1" type="text" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label">邮箱：</label>
+                    <div class="controls">
+                        <input name="head_tel1" type="text" data-rules="{email:true}" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label">邮政编码：</label>
+                    <div class="controls">
+                        <input name="head_tel1" type="text" data-rules="" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label">网站地址：</label>
+                    <div class="controls">
+                        <input name="head_tel1" type="text" data-rules="{email:true}" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label"><s>*</s>地址：</label>
+                    <div class="controls">
+                        <input name="head_tel1" type="text" data-rules="{required:true}" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span15">
+                    <label class="control-label">备注：</label>
+                    <div class="controls control-row4">
+                        <textarea name="memo" class="input-large" data-tip="{text:'请填写备注信息！'}" type="text"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-actions actions-bar">
+                <div class="span13 offset3 ">
+                    <button type="submit" class="button button-primary">保存</button>
+                    <button type="reset" class="button">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+</body>
+<script type="text/javascript" src="../assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../assets/js/bui-min.js"></script>
+
+<script type="text/javascript" src="../assets/js/config-min.js"></script>
+<script type="text/javascript">
+    BUI.use('common/page');
+</script>
+<script type="text/javascript">
+    BUI.use('bui/form',function (Form) {
+        var form = new Form.HForm({
+            srcNode : '#J_Form'
+        });
+
+        form.render();
+    });
+</script>
+
+</html>

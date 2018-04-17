@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>江苏农村科技服务超市</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/bui-min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/main-min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="header">
+
+    <div class="dl-title">
+        <a href="#" title="超市">
+            <span class="lp-title-port">农林超市</span><span class="dl-title-text">管理系统</span>
+        </a>
+    </div>
+
+    <div class="dl-log">欢迎您，<span class="dl-log-user">new.gooltsgle@gmail.com</span><a href="#" title="退出系统" class="dl-log-quit">退出</a>
+    </div>
+</div>
+<div class="content">
+    <div class="dl-main-nav">
+        <ul id="J_Nav" class="nav-list ks-clear">
+            <li class="nav-item dl-selected">
+                <div class="nav-item-inner nav-home">首页</div>
+            </li>
+        </ul>
+    </div>
+    <ul id="J_NavContent" class="dl-tab-conten">
+
+    </ul>
+</div>
+<script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="./assets/js/bui.js"></script>
+<script type="text/javascript" src="./assets/js/config.js"></script>
+
+<script>
+    BUI.use('common/main', function () {
+        var config = [{
+            id: 'menu',
+            homePage: 'headquarter',
+            menu: [{
+                text: '总店管理',
+                items: [
+                    {id: 'headquarter', text: '总店信息', href: 'main/headquarter.html', closeable: false},
+                ]
+            }, {
+                text: '分店管理',
+                items: [
+                    {id: 'branch_password', text: '密码管理', href: 'main/branch_password.html'},
+                    {id: 'branch_list', text: '分店一览', href: 'main/branch_list.html'},
+                    {id: 'receiving_address', text: '收货地址', href: 'main/receiving_address.html'},
+                    {id: 'employee_management', text: '员工管理', href: 'main/employee_management.html'},
+                    {id: 'branch_info', text: '信息管理', href: 'main/branch_info.html'}
+                ]
+            }, {
+                text: '分类管理',
+                items: [
+                    {id: 'main_category', text: '大分类', href: 'main/resource.html'},
+                    {id: 'center_category', text: '中分类', href: 'main/loader.html'},
+                    {id: 'unit', text: '单位', href: 'main/loader.html'}
+
+                ]
+            }, {
+                text: '商品管理',
+                items: [
+                    {id: 'all_goods', text: '全部商品', href: 'main/resource.html'},
+                   ]
+            }, {
+                text: '订单管理',
+                items: [
+                    {id: 'all_orders', text: '全部订单', href: 'main/resource.html'},
+                ]
+            }, {
+                text: '报表管理',
+                items: [
+                    {id: 'see_out', text: '出库一览', href: 'main/resource.html'},
+                    {id: 'sales_stat', text: '销量统计', href: 'main/loader.html'}
+                ]
+            }]
+        }];
+        new PageUtil.MainPage({
+            modulesConfig: config
+        });
+    });
+</script>
+</body>
+</html>

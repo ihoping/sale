@@ -1,0 +1,248 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> 资源文件结构</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/page-min.css" rel="stylesheet" type="text/css" />
+    <style>
+        body,li,p,ul {
+            margin: 0;
+            padding: 0;
+            font: 12px/1 Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+        }
+        ul, li, ol { list-style: none; }
+
+        /* 重置文本格式元素 */
+        a {
+            text-decoration: none;
+            cursor: pointer;
+            color:#333333;
+            font-size:14px;
+        }
+        a:hover {
+            text-decoration: none;
+        }
+        .clearfix::after{
+            display:block;
+            content:'';
+            height:0;
+            overflow:hidden;
+            clear:both;
+        }
+
+        /*星星样式*/
+        .content{
+            width:600px;
+            margin:0 auto;
+            padding-top:20px;
+        }
+        .title{
+            font-size:14px;
+            background:#dfdfdf;
+            padding:10px;
+            margin-bottom:10px;
+        }
+        .block{
+            width:100%;
+            margin:0 0 20px 0;
+            padding-top:10px;
+            padding-left:50px;
+            line-height:21px;
+        }
+        .block .star_score{
+            float:left;
+        }
+        .star_list{
+            height:21px;
+            margin:50px;
+            line-height:21px;
+        }
+        .block p,.block .attitude{
+            padding-left:20px;
+            line-height:21px;
+            display:inline-block;
+        }
+        .block p span{
+            color:#C00;
+            font-size:16px;
+            font-family:Georgia, "Times New Roman", Times, serif;
+        }
+
+        .star_score {
+            background:url(../assets/img/stark2.png);
+            width:160px;
+            height:21px;
+            position:relative;
+        }
+
+        .star_score a{
+            height:21px;
+            display:block;
+            text-indent:-999em;
+            position:absolute;
+            left:0;
+        }
+
+        .star_score a:hover{
+            background:url(../assets/img/stars2.png);
+            left:0;
+        }
+
+        .star_score a.clibg{
+            background:url(../assets/img/stars2.png);
+            left:0;
+        }
+
+        #starttwo .star_score {
+            background:url(../assets/img/starky.png);
+        }
+
+        #starttwo .star_score a:hover{
+            background:url(../assets/img/starsy.png);
+            left:0;
+        }
+
+        #starttwo .star_score a.clibg{
+            background:url(../assets/img/starsy.png);
+            left:0;
+        }
+
+        /*星星样式*/
+
+        .show_number{
+            padding-left:50px;
+            padding-top:20px;
+        }
+
+        .show_number li{
+            width:240px;
+            border:1px solid #ccc;
+            padding:10px;
+            margin-right:5px;
+            margin-bottom:20px;
+        }
+
+        .atar_Show{
+            background:url(../assets/img/stark2.png);
+            width:160px; height:21px;
+            position:relative;
+            float:left;
+        }
+
+        .atar_Show p{
+            background:url(../assets/img/stars2.png);
+            left:0;
+            height:21px;
+            width:134px;
+        }
+
+        .show_number li span{
+            display:inline-block;
+            line-height:21px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <form id="J_Form" class="form-horizontal span24">
+
+            <div class="row form-actions actions-bar">
+                <h3>查询条件</h3>
+                <div class="control-group span8">
+                    <label class="control-label">分店ID：</label>
+                    <div class="controls">
+                        <input name="b_id" type="text" data-rules="" class="input-normal control-text">
+                    </div>
+                </div>
+                <div class="control-group span8">
+                    <label class="control-label">邮箱：</label>
+                    <div class="controls">
+                        <input name="email" type="text" data-rules="{email:true}" class="input-normal control-text">
+                    </div>
+                </div>
+                <div class="control-group span8">
+                    <label class="control-label">电话号码：</label>
+                    <div class="controls">
+                        <input name="tel" type="text" data-rules="" class="input-normal control-text">
+                    </div>
+                </div>
+                <div class="control-group span8">
+                    <label class="control-label">分店信用等级：</label>
+                    <div class="controls" id="startone">
+                        <div class="star_score" style="float: left"></div>
+                        <!--<div class="attitude" ></div>-->
+                    </div>
+                </div>
+                <div class="control-group span8 offset1">
+                    <div class="controls">
+                        <button type="button" class="button"><i class="icon-search"></i> 查询</button>
+                        <button type="reset" class="button"><i class=" icon-refresh"></i> 清空</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div id="grid"></div>
+        <p>
+            <button id="btnSave" class="button button-primary">提交</button>
+        </p>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="../assets/js/bui-min.js"></script>
+<script src="../assets/js/starScore.js"></script>
+
+<script type="text/javascript" src="../assets/js/config-min.js"></script>
+<script type="text/javascript">
+    BUI.use('common/page');
+</script>
+<script type="text/javascript">
+    BUI.use('bui/form',function (Form) {
+        var form = new Form.HForm({
+            srcNode : '#J_Form'
+        });
+
+        form.render();
+    });
+</script>
+<script type="text/javascript">
+    BUI.use(['bui/grid','bui/data'],function (Grid,Data) {
+        var columns = [{title : '分店登录ID',dataIndex :'branch_id'},
+                {title : '分店名',dataIndex :'branch_name'},
+                {title : '联系人',dataIndex :'branch_contacts'},
+                {title : '地址',dataIndex :'branch_address'},
+                {title : '电话号码',dataIndex :'branch_phone'},
+                {title : '邮箱',dataIndex :'branch_email'}
+            ],
+            //默认的数据
+            data = [],
+            store = new Data.Store({
+                data:data
+            }),
+            grid = new Grid.Grid({
+                render : '#grid',
+                columns : columns,
+                width : 700,
+                forceFit : true,
+                store : store,
+                plugins : [Grid.Plugins.CheckSelection],
+            });
+        grid.render();
+        var logEl = $('#log');
+        $('#btnSave').on('click',function(){
+            var records = store.getResult();
+            logEl.text(BUI.JSON.stringify(records));
+        });
+    });
+</script>
+<script>
+    scoreFun($("#startone"));
+</script>
+</html>
