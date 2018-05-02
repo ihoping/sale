@@ -15,15 +15,15 @@
             <div class="row form-actions actions-bar">
                 <h3>查询条件</h3>
                 <div class="control-group span8">
-                    <label class="control-label">大分类ID：</label>
+                    <label class="control-label">单位ID：</label>
                     <div class="controls">
-                        <input name="big_category_id" type="text" data-rules="" class="input-normal control-text">
+                        <input name="unit_id" type="text" data-rules="" class="input-normal control-text">
                     </div>
                 </div>
                 <div class="control-group span8">
-                    <label class="control-label">大分类名：</label>
+                    <label class="control-label">单位名：</label>
                     <div class="controls">
-                        <input name="big_category_name" type="text" data-rules="" class="input-normal control-text">
+                        <input name="unit_name" type="text" data-rules="" class="input-normal control-text">
                     </div>
                 </div>
                 <div class="control-group span8 offset1">
@@ -44,9 +44,9 @@
         <form id="J_Form1" class="form-horizontal">
             <div class="row">
                 <div class="control-group span8">
-                    <label class="control-label"><s>*</s>大分类名：</label>
+                    <label class="control-label"><s>*</s>单位名：</label>
                     <div class="controls">
-                        <input name="big_category_name" id="big_category_name" type="text" data-rules="{required:true}" class="input-normal control-text">
+                        <input name="unit_name" id="unit_name" type="text" data-rules="{required:true}" class="input-normal control-text">
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <div class="control-group span8">
                     <label class="control-label">备注：</label>
                     <div class="controls">
-                        <textarea name="big_category_mark" rows="4" id="big_category_mark"></textarea>
+                        <textarea name="unit_mark" rows="4" id="unit_mark"></textarea>
                     </div>
                 </div>
             </div>
@@ -69,8 +69,9 @@
 <script type="text/javascript">
     BUI.use(['bui/grid','bui/data','bui/overlay'],function (Grid,Data,Overlay) {
         var data = [{big_category_id:1,big_category_name:2}];
-        var columns = [{title : 'ID',dataIndex :'big_category_id'},
-                {title : '名称',dataIndex :'big_category_name'},
+        var columns = [{title : '单位ID',dataIndex :'unit_id'},
+                {title : '单位名',dataIndex :'unit_name'},
+                {title : '备注',dataIndex :'unit_mark'},
             ],
             store = new Data.Store({
                 url : 'data.php',
@@ -103,12 +104,12 @@
             return false;
         });
         var dialog = new Overlay.Dialog({
-            title:'新增大分类',
+            title:'新增单位',
             //配置DOM容器的编号
             contentId:'content',
             success:function () {
-                var name = $('#big_category_name').val();
-                var mark = $('#big_category_mark').val();
+                var name = $('#unit_name').val();
+                var mark = $('#unit_mark').val();
                 if (name == '') {
                     alert('请输入名称再提交！');
                     return;
