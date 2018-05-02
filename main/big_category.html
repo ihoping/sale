@@ -35,9 +35,9 @@
                 </div>
             </div>
         </form>
-        <div class="row">
-            <div id="grid"></div>
-        </div>
+    </div>
+    <div class="row">
+        <div id="grid"></div>
     </div>
 
     <div id="content" class="hide">
@@ -47,6 +47,14 @@
                     <label class="control-label"><s>*</s>大分类名：</label>
                     <div class="controls">
                         <input name="big_category_name" id="big_category_name" type="text" data-rules="{required:true}" class="input-normal control-text">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="control-group span8">
+                    <label class="control-label">备注：</label>
+                    <div class="controls">
+                        <textarea name="big_category_mark" rows="4" id="big_category_mark"></textarea>
                     </div>
                 </div>
             </div>
@@ -122,6 +130,7 @@
             contentId:'content',
             success:function () {
                 var name = $('#big_category_name').val();
+                var mark = $('#big_category_mark').val();
                 if (name == '') {
                     alert('请输入名称再提交！');
                     return;
@@ -129,7 +138,7 @@
                 $.ajax({
                     url: 'data.php',
                     type: 'get',
-                    data: {name: name},
+                    data: {name: name, mark: mark},
                     async: false,
                     success: function (data) {
                         alert(data);
