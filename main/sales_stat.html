@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title> 资源文件结构</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="../assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <form id="searchForm" class="form-horizontal span24">
+            <div class="row form-actions actions-bar">
+                <h3>查询条件</h3>
+                <div class="control-group span15">
+                    <label class="control-label">报表类型：</label>
+                    <div class="controls">
+                        <select name="stat_category">
+                            <option value="0">11</option>
+                            <option value="1">22</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="control-group span15">
+                    <label class="control-label">分店：</label>
+                    <div class="controls">
+                        <select name="big_category">
+                            <option value="0">11</option>
+                            <option value="1">22</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group span15">
+                    <label class="control-label">大分类：</label>
+                    <div class="controls">
+                        <select name="big_category">
+                            <option value="0">毒药</option>
+                            <option value="1">农产品</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="control-group span15">
+                    <label class="control-label">商品名：</label>
+                    <div class="controls">
+                        <input name="goods_name" type="text" data-rules="" class="input-normal control-text">
+                    </div>
+                </div>
+                <div class="control-group span15">
+                    <label class="control-label"><s>*</s>日期：</label>
+                    <div class="controls bui-form-group">
+                        <input name="start" type="text" class="calendar" /><span> - </span><input name="end" type="text" class="calendar" />
+                    </div>
+                </div>
+                <div class="control-group span8 offset1">
+                    <div class="controls">
+                        <button type="submit" id="print" class="button"><i class="icon-search"></i> 搜索</button>
+                        <button type="reset" class="button"><i class="icon-refresh"></i> 清空</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div id="main" style="width: 600px;height:400px;"></div>
+    </div>
+</div>
+</body>
+<script src="https://cdn.bootcss.com/echarts/3.8.0/echarts.min.js"></script>
+<script>
+    // 基于准备好的dom，初始化echarts实例
+    var myChart = echarts.init(document.getElementById('main'));
+    option = {
+        title: {
+            text: '测试分店一商品统计表',
+        },
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'shadow'
+            }
+        },
+        legend: {
+            data: ['销售数量', '销售金额']
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+            type: 'category',
+            data: ['萝卜','酸菜','白菜','大蒜','洋葱','章鱼']
+        },
+        series: [
+            {
+                name: '销售数量',
+                type: 'bar',
+                data: [18203, 23489, 29034, 104970, 131744, 630230]
+            },
+            {
+                name: '销售金额',
+                type: 'bar',
+                data: [19325, 23438, 31000, 121594, 134141, 681807]
+            }
+        ]
+    };
+    myChart.setOption(option);
+</script>
+</html>
